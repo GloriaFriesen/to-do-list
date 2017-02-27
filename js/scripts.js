@@ -10,12 +10,22 @@ $(document).ready(function() {
 
     var newToDo = new ToDo(inputtedToDo);
 
-    $("ul#to-do-list").append("<li>" + newToDo.toDo + " <span class='to-do-link'>Done</span></li>");
+    $("ul#to-do-list").append("<li>" + newToDo.toDo + " (<span class='done-link'>Completed</span> | <span class='delete-link'>Delete</span>)</li>");
 
-    $(".to-do-link").last().click(function() {
+    $(".delete-link").last().click(function() {
       if (confirm("Remove from list?")) {
         $(this).parent().remove();
       }
+    });
+
+    $(".done-link").last().click(function() {
+      $(this).parent().remove();
+      $("#done-list").append("<li>" + newToDo.toDo + " <span class='delete-link'>Delete</span></li>");
+      $(".delete-link").last().click(function() {
+        if (confirm("Remove from list?")) {
+          $(this).parent().remove();
+        }
+      });
     });
 
     $("input").val("");

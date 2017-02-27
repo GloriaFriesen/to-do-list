@@ -1,8 +1,8 @@
-.to-do-link {
+.done-link, .delete-link {
   cursor: pointer;
   color: blue;
 }
 
-.to-do-link:hover {
+.done-link:hover, .delete-link:hover {
   text-decoration: underline;
 }
