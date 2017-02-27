@@ -1,0 +1,8 @@
+.to-do-link {
+  cursor: pointer;
+  color: blue;
+}
+
+.to-do-link:hover {
+  text-decoration: underline;
+}
